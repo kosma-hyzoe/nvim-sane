@@ -1,3 +1,3 @@
 require("sanevim.remap")
-require("sanevim.packer")
-
+require("sanevim.set")
+require("sanevim.cmd")
