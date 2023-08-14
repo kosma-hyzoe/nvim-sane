@@ -12,10 +12,17 @@ vim.opt.smartcase = true
 vim.opt.number = true
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
+-- Spellcheck
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us,pl'
+vim.opt.wildmode = "longest,list,full"
 
 -- Other
 vim.opt.scrolloff = 5
 vim.opt.wrap = false
 vim.opt.updatetime = 1000
-vim.opt.spelllang = 'en_us,pl'
-vim.opt.wildmode = "longest,list,full"
+vim.opt.textwidth = 0
+
