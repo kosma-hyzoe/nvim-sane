@@ -1,16 +1,42 @@
 vim.g.mapleader = ","
 
---- Staples
+--- Ctrl remaps
 
--- Comfy ctrl mappings
+-- Comfy copy, paste, cut and select all
 vim.keymap.set('v', '<c-c>', '"+y')
-vim.keymap.set('n', '<c-v>', '"+p')
+vim.keymap.set('n', '<c-v>', '"+p', {remap = true})
 vim.keymap.set('i', '<c-v>', '<esc>"+pa')
 vim.keymap.set('v', '<c-x>', '"+d')
 vim.keymap.set('n', '<c-a>', '<Nop>')
-vim.keymap.set('n', '<c-a>', 'ggVG')
+vim.keymap.set({'n', 'v', 'o'}, '<c-a>', 'ggVG', {remap = true})
 
---
+-- Use Ctrl+i for visual mode
+vim.keymap.set('n', '<c-i>', '<c-v>')
+
+vim.keymap.set('n', '<c-e>', 'ge')
+
+
+--- Leader remaps
+
+vim.keymap.set('n', '<leader>nh', ':nohl<CR>')
+vim.keymap.set('n', '<leader>sn', ':set number!<CR>')
+vim.keymap.set('n', '<leader>sr', ':set relativenumber!<CR>')
+
+-- Search word/WORD
+vim.keymap.set('n', '<leader>nw', 'viw"ty/<c-r>t<enter>')
+vim.keymap.set('n', '<leader>nW', 'viW"ty/<c-r>t<enter>')
+
+-- Show diff
+vim.keymap.set('n', '<leader>sd', ':w !diff % -<CR>')
+
+-- Close buffer
+vim.keymap.set('n', '<leader>cb', ':bp<bar>sp<bar>bn<bar>bd<CR>', {remap = true})
+
+-- Quick search
+vim.keymap.set('n', 'Q', ':%s//g<Left><Left>', {remap = true})
+
+-- Perform dot commands over visual blocks
+vim.keymap.set('v', '.', ':normal .<CR>')
 
 --- Recent additions
 
@@ -31,10 +57,17 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Center cursor while joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>t2",
-               "[[:set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>]]")
+vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- Replace word that the cursor is on
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Change tab
+vim.keymap.set("n", "<leader>t2",
+               ":set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>")
+vim.keymap.set("n", "<leader>t4",
+               ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
+vim.keymap.set("n", "<leader>t8",
+               ":set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab<CR>")
 
