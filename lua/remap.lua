@@ -4,7 +4,7 @@ vim.g.mapleader = ","
 
 -- Comfy copy, paste, cut and select all
 vim.keymap.set('v', '<c-c>', '"+y')
-vim.keymap.set('n', '<c-v>', '"+p', {remap = true})
+vim.keymap.set({'n', 'v', 'o'}, '<c-v>', '"+p', {remap = true})
 vim.keymap.set('i', '<c-v>', '<esc>"+pa')
 vim.keymap.set('v', '<c-x>', '"+d')
 vim.keymap.set('n', '<c-a>', '<Nop>')
@@ -63,7 +63,7 @@ vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Replace word that the cursor is on
 vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Change tab
+-- Change indent width, use tabs for t8
 vim.keymap.set("n", "<leader>t2",
                ":set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>")
 vim.keymap.set("n", "<leader>t4",

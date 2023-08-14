@@ -1,9 +1,6 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
@@ -12,10 +9,19 @@ return require('packer').startup(function(use)
   use 'machakann/vim-highlightedyank'
   use 'lambdalisue/suda.vim'
   use 'navarasu/onedark.nvim'
+  use 'theprimeagen/harpoon'
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
 
+  use {
+    'vimwiki/vimwiki',
+    init = function()
+      vim.g.vimwiki_key_mappings = {
+        all_maps = 0,
+      }
+    end,
+  }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     requires = { {'nvim-lua/plenary.nvim'} }
@@ -36,4 +42,3 @@ return require('packer').startup(function(use)
     }
   }
 end)
-

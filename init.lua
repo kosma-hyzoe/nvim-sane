@@ -1,1 +1,3 @@
-require("sanevim")
+require("cmd")
+require("remap")
+require("set")
