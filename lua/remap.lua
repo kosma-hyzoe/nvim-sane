@@ -7,6 +7,7 @@ vim.keymap.set('v', '<c-c>', '"+y')
 vim.keymap.set({'n', 'v', 'o'}, '<c-v>', '"+p', {remap = true})
 vim.keymap.set('i', '<c-v>', '<esc>"+pa')
 vim.keymap.set('v', '<c-x>', '"+d')
+vim.keymap.set({'n', 'v', 'o'}, '<leader>in', '<c-a>')
 vim.keymap.set('n', '<c-a>', '<Nop>')
 vim.keymap.set({'n', 'v', 'o'}, '<c-a>', 'ggVG', {remap = true})
 
