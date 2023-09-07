@@ -1,3 +1,3 @@
 require("cmd")
-require("remap")
+require("remaps")
 require("set")
