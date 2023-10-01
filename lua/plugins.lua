@@ -21,7 +21,9 @@ require('packer').startup(function(use)
       vim.g.vimwiki_key_mappings = {
         all_maps = 0,
       }
-    end,
+      -- TODO why tf doesn't this work?
+      vim.g.vimwiki_ext2syntax = {['.md'] = 'markdown'}
+    end
   }
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',

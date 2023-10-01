@@ -41,6 +41,15 @@ vim.keymap.set('v', '.', ':normal .<CR>')
 
 --- Recent additions
 
+-- Spellcheck
+vim.keymap.set({'n', 'v', 'o'}, 'o', ':setlocal spell! spelllang=en_us,pl<CR>', {remap = true})
+
+-- Split navigation
+vim.keymap.set({'n', 'v', 'o'}, '<C-h>', '<C-w>h', {remap = true})
+vim.keymap.set({'n', 'v', 'o'}, '<C-j>', '<C-w>j', {remap = true})
+vim.keymap.set({'n', 'v', 'o'}, '<C-k>', '<C-w>k', {remap = true})
+vim.keymap.set({'n', 'v', 'o'}, '<C-l>', '<C-w>l', {remap = true})
+
 -- Move selection up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
