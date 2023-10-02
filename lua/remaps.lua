@@ -44,6 +44,10 @@ vim.keymap.set('v', '.', ':normal .<CR>')
 -- Spellcheck
 vim.keymap.set({'n', 'v', 'o'}, 'o', ':setlocal spell! spelllang=en_us,pl<CR>', {remap = true})
 
+-- Look for next/previous word with m/M
+vim.keymap.set({'n', 'v', 'o'}, 'm', '*')
+vim.keymap.set({'n', 'v', 'o'}, 'M', '#')
+
 -- Split navigation
 vim.keymap.set({'n', 'v', 'o'}, '<C-h>', '<C-w>h', {remap = true})
 vim.keymap.set({'n', 'v', 'o'}, '<C-j>', '<C-w>j', {remap = true})
