@@ -42,7 +42,7 @@ vim.keymap.set('v', '.', ':normal .<CR>')
 --- Recent additions
 
 -- Spellcheck
-vim.keymap.set({'n', 'v', 'o'}, 'o', ':setlocal spell! spelllang=en_us,pl<CR>', {remap = true})
+vim.keymap.set({'n', 'v', 'o'}, '<leader>o', ':setlocal spell! spelllang=en_us,pl<CR>', {remap = true})
 
 -- Look for next/previous word with m/M
 vim.keymap.set({'n', 'v', 'o'}, 'm', '*')
