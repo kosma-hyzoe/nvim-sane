@@ -45,4 +45,20 @@ lsp.set_preferences({
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 
+lsp.configure('pylsp', {
+  settings = {
+    pylsp = {
+      configurationSources = {'flake8'},
+      plugins = {
+        pycodestyle = {enabled = false},
+        flake8 = {
+          enabled = true,
+          ignore = {},
+        }
+      }
+    }
+  }
+})
+
+
 lsp.setup()
