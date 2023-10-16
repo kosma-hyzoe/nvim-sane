@@ -50,7 +50,6 @@ lsp.configure('pylsp', {
     pylsp = {
       configurationSources = {'flake8'},
       plugins = {
-        pycodestyle = {enabled = false},
         flake8 = {
           enabled = true,
           ignore = {},
