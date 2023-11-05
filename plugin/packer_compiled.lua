@@ -84,14 +84,12 @@ _G.packer_plugins = {
     path = "/home/kosma/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  harpoon = {
-    loaded = true,
-    path = "/home/kosma/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/theprimeagen/harpoon"
-  },
   ["lsp-zero.nvim"] = {
-    loaded = true,
-    path = "/home/kosma/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    cond = { true },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = true,
+    path = "/home/kosma/.local/share/nvim/site/pack/packer/opt/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["mason-lspconfig.nvim"] = {
@@ -150,8 +148,11 @@ _G.packer_plugins = {
     url = "https://github.com/lambdalisue/suda.vim"
   },
   ["telescope.nvim"] = {
-    loaded = true,
-    path = "/home/kosma/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    cond = { true },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = true,
+    path = "/home/kosma/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-commentary"] = {
@@ -178,15 +179,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kosma/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
-  },
-  vimwiki = {
-    loaded = true,
-    path = "/home/kosma/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Conditional loads
+time([[Conditional loading of telescope.nvim]], true)
+  require("packer.load")({"telescope.nvim"}, {}, _G.packer_plugins)
+time([[Conditional loading of telescope.nvim]], false)
+time([[Conditional loading of lsp-zero.nvim]], true)
+  require("packer.load")({"lsp-zero.nvim"}, {}, _G.packer_plugins)
+time([[Conditional loading of lsp-zero.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
