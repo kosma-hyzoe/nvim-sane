@@ -85,3 +85,5 @@ vim.keymap.set("n", "<leader>t4",
 vim.keymap.set("n", "<leader>t8",
                ":set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab<CR>")
 
+
+vim.keymap.set({'n', 'v', 'o'}, "<leader>nn", ":set number!<CR>")
