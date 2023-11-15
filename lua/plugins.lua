@@ -10,10 +10,15 @@ require('packer').startup(function(use)
     use('lambdalisue/suda.vim', { cond = not vim.g.vscode })
     use('navarasu/onedark.nvim', { cond = not vim.g.vscode })
 
-    use('nvim-treesitter/nvim-treesitter',
-        { run = ':TSUpdate', cond = not vim.g.vscode })
     use('nvim-treesitter/nvim-treesitter-context', { cond = not vim.g.vscode })
     use('nvim-treesitter/playground', { cond = not vim.g.vscode })
+    use {'nvim-treesitter/nvim-treesitter',
+            run = function()
+                local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+                ts_update()
+			end,
+            cond = not vim.g.vscode
+    }
 
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
