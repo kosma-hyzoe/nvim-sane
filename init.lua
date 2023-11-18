@@ -1,4 +1,4 @@
 require("remaps")
 require("set")
 
-vim.cmd(':source lua/cmd.vim')
+vim.cmd(':source ~/.config/nvim/lua/cmd.vim')
