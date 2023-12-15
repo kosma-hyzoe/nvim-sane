@@ -1,47 +1,42 @@
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
-  use 'terryma/vim-multiple-cursors'
-  use 'machakann/vim-highlightedyank'
-  use 'lambdalisue/suda.vim'
-  use 'navarasu/onedark.nvim'
-  use 'theprimeagen/harpoon'
+    use('wbthomason/packer.nvim', { cond = not vim.g.vscode })
+    use('tpope/vim-surround', { cond = not vim.g.vscode })
+    use('tpope/vim-commentary', { cond = not vim.g.vscode })
+    use('tpope/vim-fugitive', { cond = not vim.g.vscode })
+    use('terryma/vim-multiple-cursors', { cond = not vim.g.vscode })
+    use('machakann/vim-highlightedyank', { cond = not vim.g.vscode })
+    use('lambdalisue/suda.vim', { cond = not vim.g.vscode })
+    use('navarasu/onedark.nvim', { cond = not vim.g.vscode })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('nvim-treesitter/nvim-treesitter-context')
-  use('nvim-treesitter/playground')
-
-  use {
-    'vimwiki/vimwiki',
-    init = function()
-      vim.g.vimwiki_key_mappings = {
-        all_maps = 0,
-      }
-      -- TODO why tf doesn't this work?
-      vim.g.vimwiki_ext2syntax = {['.md'] = 'markdown'}
-    end
-  }
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {'williamboman/mason.nvim'},           -- Optional
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
+    use('nvim-treesitter/nvim-treesitter-context', { cond = not vim.g.vscode })
+    use('nvim-treesitter/playground', { cond = not vim.g.vscode })
+    use {'nvim-treesitter/nvim-treesitter',
+            run = function()
+                local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+                ts_update()
+			end,
+            cond = not vim.g.vscode
     }
-  }
+
+    use {
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }, cond = not vim.g.vscode
+    }
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
+        }, cond = not vim.g.vscode
+    }
 end)
