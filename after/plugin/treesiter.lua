@@ -11,7 +11,7 @@ require'nvim-treesitter.configs'.setup {
   auto_install = true,
 
   highlight = {
-    enable = true,
+    -- enable = true,
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -20,3 +20,25 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('treesitter', {}),
+  callback = function(ev)
+    local parsers = require("nvim-treesitter.parsers")
+    local lang = parsers.ft_to_lang(ev.match)
+
+    if not parsers.has_parser(lang) then
+      return true
+    end
+
+    local max_filesize = 100 * 1024 -- 100 KB
+    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(ev.buf))
+
+    if ok and stats and stats.size > max_filesize then
+      return true
+    end
+
+    vim.treesitter.start(ev.buf)
+  end,
+})
