@@ -14,6 +14,7 @@ vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.conceallevel=2
 
 -- Other
 vim.opt.scrolloff = 5
