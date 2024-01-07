@@ -41,4 +41,12 @@ require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         }, cond = not vim.g.vscode
     }
+    use({'jakewvincent/mkdnflow.nvim',
+     config = function()
+        require('mkdnflow').setup({
+            -- Config goes here; leave blank for defaults
+        })
+     end,
+     cond = not vim.g.vscode
+})
 end)
