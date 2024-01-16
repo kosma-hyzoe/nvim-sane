@@ -18,3 +18,12 @@ function! KernelStyle()
     setlocal shiftwidth=8
     setlocal noexpandtab
 endfunction
+
+
+autocmd FileType markdown call Markdown()
+function! Markdown()
+    setlocal tabstop=2
+    setlocal softtabstop=2
+    setlocal shiftwidth=2
+    setlocal expandtab
+endfunction

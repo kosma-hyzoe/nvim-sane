@@ -14,12 +14,12 @@ require('packer').startup(function(use)
 
     use('nvim-treesitter/nvim-treesitter-context', { cond = not vim.g.vscode })
     use('nvim-treesitter/playground', { cond = not vim.g.vscode })
-    use {'nvim-treesitter/nvim-treesitter',
-            run = function()
-                local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-                ts_update()
-			end,
-            cond = not vim.g.vscode
+    use { 'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+        cond = not vim.g.vscode
     }
 
     use {
@@ -41,12 +41,13 @@ require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         }, cond = not vim.g.vscode
     }
-    use({'jakewvincent/mkdnflow.nvim',
-     config = function()
-        require('mkdnflow').setup({
-            -- Config goes here; leave blank for defaults
-        })
-     end,
-     cond = not vim.g.vscode
-})
+    use({
+        'jakewvincent/mkdnflow.nvim',
+        config = function()
+            require('mkdnflow').setup({
+                -- Config goes here; leave blank for defaults
+            })
+        end,
+        cond = not vim.g.vscode
+    })
 end)
