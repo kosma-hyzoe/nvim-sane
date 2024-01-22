@@ -23,10 +23,6 @@ vim.keymap.set('n', '<leader>nh', ':nohl<CR>')
 vim.keymap.set('n', '<leader>sn', ':set number!<CR>')
 vim.keymap.set('n', '<leader>sr', ':set relativenumber!<CR>')
 
--- Search word/WORD
-vim.keymap.set('n', '<leader>nw', 'viw"ty/<c-r>t<enter>')
-vim.keymap.set('n', '<leader>nW', 'viW"ty/<c-r>t<enter>')
-
 -- Show diff
 vim.keymap.set('n', '<leader>sd', ':w !diff % -<CR>')
 
