@@ -1,48 +1,8 @@
-vim.g.mapleader = ","
-
---- Ctrl remaps
-
--- Comfy copy, paste, cut and select all
-vim.keymap.set('v', '<c-c>', '"+y')
-vim.keymap.set({'n', 'v', 'o'}, '<c-v>', '"+p', {remap = true})
-vim.keymap.set('i', '<c-v>', '<esc>"+pa')
-vim.keymap.set('v', '<c-x>', '"+d')
-vim.keymap.set({'n', 'v', 'o'}, '<leader>in', '<c-a>')
-vim.keymap.set('n', '<c-a>', '<Nop>')
-vim.keymap.set({'n', 'v', 'o'}, '<c-a>', 'ggVG', {remap = true})
-
--- Use Ctrl+i for visual mode
-vim.keymap.set('n', '<c-i>', '<c-v>')
-
-vim.keymap.set('n', '<c-e>', 'ge')
-
-
---- Leader remaps
-
-vim.keymap.set('n', '<leader>nh', ':nohl<CR>')
-vim.keymap.set('n', '<leader>sn', ':set number!<CR>')
-vim.keymap.set('n', '<leader>sr', ':set relativenumber!<CR>')
-
--- Show diff
-vim.keymap.set('n', '<leader>sd', ':w !diff % -<CR>')
-
--- Close buffer
-vim.keymap.set('n', '<leader>cb', ':bp<bar>sp<bar>bn<bar>bd<CR>', {remap = true})
-
 -- Quick search
 vim.keymap.set('n', 'Q', ':%s//g<Left><Left>', {remap = true})
 
--- Perform dot commands over visual blocks
+-- perform dot commands over visual blocks
 vim.keymap.set('v', '.', ':normal .<CR>')
-
---- Recent additions
-
--- Spellcheck
-vim.keymap.set({'n', 'v', 'o'}, '<leader>o', ':setlocal spell! spelllang=en_us,pl<CR>', {remap = true})
-
--- Look for next/previous word with m/M
-vim.keymap.set({'n', 'v', 'o'}, 'm', '*')
-vim.keymap.set({'n', 'v', 'o'}, 'M', '#')
 
 -- Split navigation
 vim.keymap.set({'n', 'v', 'o'}, '<C-h>', '<C-w>h', {remap = true})
@@ -67,20 +27,45 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Center cursor while joining lines
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Ctrl remaps
+
+-- Comfy copy, paste, cut and select all
+vim.keymap.set('v', '<c-c>', '"+y')
+vim.keymap.set({'n', 'v', 'o'}, '<c-v>', '"+p', {remap = true})
+vim.keymap.set('i', '<c-v>', '<esc>"+pa')
+vim.keymap.set('v', '<c-x>', '"+d')
+vim.keymap.set('n', '<c-a>', '<Nop>')
+vim.keymap.set({'n', 'v', 'o'}, '<c-a>', 'ggVG', {remap = true})
+
+vim.keymap.set('n', '<c-i>', '<c-v>')
+vim.keymap.set('n', '<c-e>', 'ge')
+
+-- Leader remaps
+
+vim.g.mapleader = ","
+vim.keymap.set('n', '<leader>nh', ':nohl<CR>')
+vim.keymap.set('n', '<leader>sn', ':set number!<CR>')
+vim.keymap.set('n', '<leader>sr', ':set relativenumber!<CR>')
+vim.keymap.set('n', '<leader>cr', 'z=')
+vim.keymap.set({'n', 'v', 'o'}, '<leader>o', ':setlocal spell!<CR>', {remap = true})
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+
+-- Add run permissions on currently open file
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Show diff
+vim.keymap.set('n', '<leader>sd', ':w !diff % -<CR>')
+
+-- Close buffer
+vim.keymap.set('n', '<leader>cb', ':bp<bar>sp<bar>bn<bar>bd<CR>', {remap = true})
 
 -- Replace word that the cursor is on
 vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Change indent width, use tabs for t8
-vim.keymap.set("n", "<leader>t2",
-               ":set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>")
-vim.keymap.set("n", "<leader>t4",
-               ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
-vim.keymap.set("n", "<leader>nc",
-               ":set formatoptions-=c formatoptions-=r formatoptions-=o<CR>")
+vim.keymap.set("n", "<leader>t2", ":set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>")
+vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
+vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
 
-
-
-vim.keymap.set({'n', 'v', 'o'}, "<leader>nn", ":set number!<CR>")
+-- Disable starting new line as a comment when doing a newline from a commnent
+vim.keymap.set("n", "<leader>nc", ":set formatoptions-=c formatoptions-=r formatoptions-=o<CR>")

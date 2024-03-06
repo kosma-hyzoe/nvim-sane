@@ -16,7 +16,8 @@ require('packer').startup(function(use)
     use('nvim-treesitter/playground', { cond = not vim.g.vscode })
     use { 'nvim-treesitter/nvim-treesitter',
         run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            local ts_update = require('nvim-treesitter.install')
+                .update({ with_sync = true })
             ts_update()
         end,
         cond = not vim.g.vscode

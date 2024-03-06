@@ -11,16 +11,30 @@ vim.opt.mouse = 'a'
 vim.opt.smartcase = true
 vim.opt.number = false
 vim.opt.ignorecase = true
-vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.conceallevel=2
-
--- Other
-vim.opt.scrolloff = 5
 vim.opt.wrap = false
+vim.opt.scrolloff = 5
+
 vim.opt.updatetime = 1000
 vim.opt.textwidth = 0
-vim.opt.spelllang = 'en_us,pl'
 vim.opt.wildmode = "longest,list,full"
+vim.opt.spelllang = 'en_us,pl'
 vim.opt.spell = true
+-- vim.opt.spellsuggest="best,9"
+
+-- Use internal formatting for bindings like gq
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        vim.bo[args.buf].formatexpr = nil
+    end,
+ })
+
+ if vim.g.vscode then
+    vim.cmd([[
+        hi clear SpellCap
+        hi clear SpellRare
+        hi clear SpellBad
+        hi Spellbad gui=underline guisp=grey
+    ]])
+ end
