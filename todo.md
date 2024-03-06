@@ -1,2 +1,3 @@
-* ctrl-z in insert mode
+* tabular
+* markdown conceals
 *
