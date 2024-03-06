@@ -21,7 +21,7 @@ vim.opt.textwidth = 0
 vim.opt.wildmode = "longest,list,full"
 vim.opt.spelllang = 'en_us,pl'
 vim.opt.spell = true
--- vim.opt.spellsuggest="best,9"
+vim.opt.spellsuggest="best,9"
 
 -- Use internal formatting for bindings like gq
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.cmd([[
         hi clear SpellCap
         hi clear SpellRare
+        hi clear SpellLocal
         hi clear SpellBad
         hi Spellbad gui=underline guisp=grey
     ]])

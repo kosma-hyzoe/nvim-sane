@@ -1,51 +1,47 @@
-local lsp = require('lsp-zero')
+local lsp_zero = require('lsp-zero')
 
-lsp.preset("recommended")
-
-local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ["<C-Space>"] = cmp.mapping.complete()
-})
-
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
-})
-
-lsp.on_attach(function(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>vs", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>od", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>rf", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<leader>sh", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.set_preferences({
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    ensure_installed = { 'bashls', 'lua_ls' },
 })
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+local cmp = require('cmp')
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-lsp.configure('pylsp', {
+cmp.setup({
+    sources = {
+        { name = 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+        { name = 'luasnip', keyword_length = 2 },
+        { name = 'buffer',  keyword_length = 3 },
+    },
+    formatting = lsp_zero.cmp_format({ details = false }),
+    mapping = cmp.mapping.preset.insert({
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+    }),
+})
+
+require('lspconfig').lua_ls.setup(lsp_zero.nvim_lua_ls())
+require('lspconfig').pylsp.setup({
     settings = {
         pylsp = {
             configurationSources = { 'flake8' },
@@ -59,6 +55,6 @@ lsp.configure('pylsp', {
     }
 })
 
-lsp.setup()
+lsp_zero.setup()
 
-vim.keymap.set({'n', 'v', 'o'}, '<leader>af', ':LspZeroFormat<CR>')
+vim.keymap.set({ 'n', 'v', 'o' }, '<leader>af', ':LspZeroFormat<CR>')
