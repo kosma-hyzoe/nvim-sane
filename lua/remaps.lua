@@ -46,7 +46,7 @@ vim.g.mapleader = ","
 vim.keymap.set('n', '<leader>nh', ':nohl<CR>')
 vim.keymap.set('n', '<leader>sn', ':set number!<CR>')
 vim.keymap.set('n', '<leader>sr', ':set relativenumber!<CR>')
-vim.keymap.set('n', '<leader>ss', 'z=')
+if vim.g.vscode then vim.keymap.set('n', '<leader>ss', 'z=') end
 vim.keymap.set({ 'n', 'v', 'o' }, '<leader>o', ':setlocal spell!<CR>', { remap = true })
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 
