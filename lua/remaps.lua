@@ -67,6 +67,9 @@ vim.keymap.set("n", "<leader>t2", ":set tabstop=2 softtabstop=2 shiftwidth=2 exp
 vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
 vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
 
+vim.keymap.set("n", "<leader>c1", ":set conceallevel=1<CR>")
+vim.keymap.set("n", "<leader>c0", ":set conceallevel=0<CR>")
+
 -- Disable starting new line as a comment when doing a newline from a comnent
 vim.keymap.set("n", "<leader>nc", ":set formatoptions-=c formatoptions-=r formatoptions-=o<CR>")
 
