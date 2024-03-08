@@ -18,10 +18,10 @@ vim.opt.scrolloff = 5
 
 vim.opt.updatetime = 1000
 vim.opt.textwidth = 0
-vim.opt.wildmode = "longest,list,full"
+vim.opt.wildmode = 'longest,list,full'
 vim.opt.spelllang = 'en_us,pl'
 vim.opt.spell = true
-vim.opt.spellsuggest = "best,9"
+vim.opt.spellsuggest = 'best,9'
 vim.opt.conceallevel = 0
 
 -- Use internal formatting for bindings like gq
@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
  })
 
+ -- Highlight bad spell as a grey underline, disable other spell suggestions
  if vim.g.vscode then
     vim.cmd([[
         hi clear SpellCap

@@ -1,6 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
+    use('godlygeek/tabular', { cond = not vim.g.vscode })
     use('preservim/vim-markdown', { cond = not vim.g.vscode })
     use('wbthomason/packer.nvim', { cond = not vim.g.vscode })
     use('tpope/vim-surround', { cond = not vim.g.vscode })
@@ -10,7 +11,6 @@ require('packer').startup(function(use)
     use('machakann/vim-highlightedyank', { cond = not vim.g.vscode })
     use('lambdalisue/suda.vim', { cond = not vim.g.vscode })
     use('navarasu/onedark.nvim', { cond = not vim.g.vscode })
-    use('godlygeek/tabular', { cond = not vim.g.vscode })
     use('rhysd/vim-grammarous')
 
     use('nvim-treesitter/nvim-treesitter-context', { cond = not vim.g.vscode })
