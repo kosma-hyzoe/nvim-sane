@@ -1,3 +1,0 @@
-* tabular
-* markdown conceals
-*
