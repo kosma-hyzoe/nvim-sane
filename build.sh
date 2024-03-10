@@ -1,4 +1,4 @@
-!/usr/bin/bash
+#!/usr/bin/bash
 
 git clone https://github.com/neovim/neovim
 cd neovim
