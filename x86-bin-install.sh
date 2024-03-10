@@ -13,6 +13,3 @@ wget https://www.languagetool.org/download/LanguageTool-5.9.zip
 unzip LanguageTool-5.9.zip
 mv LanguageTool-5.9 -f \
     ~/.local/share/nvim/site/pack/packer/start/vim-grammarous/misc
-ln ~/.local/bin/nvim /usr/local/bin/nvim
-ln ~/.local/bin/nvim /usr/local/bin/nvim
-sudo ln ~/.local/nvim-linux64/bin/nvim /usr/local/bin/nvim
