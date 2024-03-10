@@ -35,6 +35,7 @@ cmp.setup({
         ['<c-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<c-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<escape>'] = cmp.mapping.abort(),
         ['<c-space>'] = cmp.mapping.complete(),
     }),
 })
