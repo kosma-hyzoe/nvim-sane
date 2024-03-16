@@ -2,8 +2,8 @@
 
 ## Installation
 
-1. make sure `vim-gtk3` and `xclip` is installed.
-2. run `install.sh` to install Neovim itself.
+1. make sure xclip` is installed for comfy `ctrl+c`/`ctrl+v` copy/paste to work.
+2. run `x86-bin-install.sh` or `build.sh` to install Neovim itself.
 3. open `lua/plugins.lua` with Neovim. Ignore the errors and warnings,
    run `:so` and then `:PackerSync`.
 
