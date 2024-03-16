@@ -54,6 +54,21 @@ require('lspconfig').pylsp.setup({
         }
     }
 })
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp_zero.default_setup,
+    clangd = function()
+      require('lspconfig').clangd.setup({
+        capabilities = {
+          offsetEncoding = 'utf-8',
+          -- fallbackFlags = "--target=x86_64-pc-linux-gnu"
+        },
+      })
+    end,
+  },
+})
+
 lsp_zero.setup()
 
 vim.keymap.set({ 'n', 'v', 'o' }, '<leader>af', ':LspZeroFormat<CR>')
