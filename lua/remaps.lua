@@ -4,6 +4,10 @@ vim.keymap.set('n', 'Q', ':%s//g<Left><Left>', { remap = true })
 -- perform dot commands over visual blocks
 vim.keymap.set('v', '.', ':normal .<CR>')
 
+-- Un-indent
+vim.keymap.set('n', '<s-tab>', '<<')
+vim.keymap.set('i', '<s-tab>', '<C-d>')
+
 -- Split navigation
 vim.keymap.set({ 'n', 'v', 'o' }, '<C-h>', '<C-w>h', { remap = true })
 vim.keymap.set({ 'n', 'v', 'o' }, '<C-j>', '<C-w>j', { remap = true })
