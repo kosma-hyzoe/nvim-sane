@@ -4,8 +4,8 @@ vim.keymap.set('n', 'Q', ':%s//g<Left><Left>', { remap = true })
 -- perform dot commands over visual blocks
 vim.keymap.set('v', '.', ':normal .<CR>')
 
--- Un-indent
-vim.keymap.set('n', '<s-tab>', '<<')
+-- Indent
+vim.keymap.set({ 'n', 'v'}, '<s-tab>', '<<')
 vim.keymap.set('i', '<s-tab>', '<C-d>')
 
 -- Split navigation
@@ -69,8 +69,7 @@ vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -- Change indent width, use tabs for t8
 vim.keymap.set("n", "<leader>t2", ":set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>")
 vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
-vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>")
-
+vim.keymap.set("n", "<leader>t8", ":set tabstop=8  shiftwidth=8 noexpandtab<CR>")
 vim.keymap.set("n", "<leader>c1", ":set conceallevel=1<CR>")
 vim.keymap.set("n", "<leader>c0", ":set conceallevel=0<CR>")
 

@@ -14,7 +14,7 @@ autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 autocmd FileType c call KernelOrSTMStyle()
 function! KernelOrSTMStyle()
     if getline(1) =~ 'USER CODE BEGIN Header'
-        setlocal tabstop=2 shiftwidth=2 expandtab
+        setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     else
         setlocal tabstop=8 shiftwidth=8 noexpandtab
     endif

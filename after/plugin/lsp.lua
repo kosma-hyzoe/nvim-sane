@@ -35,7 +35,7 @@ cmp.setup({
         ['<c-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<c-n>'] = cmp.mapping.select_next_item(cmp_select),
         ['<tab>'] = cmp.mapping.confirm({ select = true }),
-        ['<escape>'] = cmp.mapping.abort(),
+        ['<c-x>'] = cmp.mapping.abort(),
         ['<c-space>'] = cmp.mapping.complete(),
     }),
 })
@@ -54,19 +54,11 @@ require('lspconfig').pylsp.setup({
         }
     }
 })
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  handlers = {
-    lsp_zero.default_setup,
-    clangd = function()
-      require('lspconfig').clangd.setup({
-        capabilities = {
-          offsetEncoding = 'utf-8',
-          -- fallbackFlags = "--target=x86_64-pc-linux-gnu"
-        },
-      })
-    end,
-  },
+require('lspconfig').clangd.setup({
+    force_setup = true,
+    capabilities = {
+        fallbackFlags = "--target=x85_64-pc-linux-gnu"
+    },
 })
 
 lsp_zero.setup()
