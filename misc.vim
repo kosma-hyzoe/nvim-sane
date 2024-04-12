@@ -21,6 +21,7 @@ function! KernelOrSTMStyle()
 endfunction
 
 autocmd FileType markdown call MarkdownStyle()
+autocmd FileType vimwiki call MarkdownStyle()
 function! MarkdownStyle()
     setlocal tabstop=2
     setlocal softtabstop=2
