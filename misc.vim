@@ -28,8 +28,9 @@ function! MarkdownStyle()
     setlocal shiftwidth=2
 endfunction
 
+" Hide status on keymap
 let s:hidden_all = 0
-function! ToggleHiddenAll()
+function! ToggleHideStatus()
     if s:hidden_all  == 0
         let s:hidden_all = 1
         set noshowmode
@@ -44,4 +45,4 @@ function! ToggleHiddenAll()
         set showcmd
     endif
 endfunction
-nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
+nnoremap <silent> <leader>hb :call ToggleHideStatus()<CR>
