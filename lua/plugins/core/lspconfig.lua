@@ -48,6 +48,7 @@ return {
 		local servers = {
 			clangd = {},
 			pylsp = {},
+			bashls = {},
 			lua_ls = {
 				settings = {
 					Lua = {
