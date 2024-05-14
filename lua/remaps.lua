@@ -48,12 +48,9 @@ vim.keymap.set("n", "<c-e>", "ge")
 
 vim.g.mapleader = ","
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>sn", ":set number!<CR>")
-vim.keymap.set("n", "<leader>sr", ":set relativenumber!<CR>")
-if vim.g.vscode then
-	vim.keymap.set("n", "<leader>ss", "z=")
-end
-vim.keymap.set({ "n", "v", "o" }, "<leader>o", ":setlocal spell!<CR>", { remap = true })
+vim.keymap.set("n", "<leader>tn", ":set number!<CR>")
+vim.keymap.set("n", "<leader>tr", ":set relativenumber!<CR>")
+vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>")
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 
 -- Add run permissions on currently open file
