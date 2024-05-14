@@ -52,6 +52,8 @@ vim.keymap.set("n", "<leader>tn", ":set number!<CR>")
 vim.keymap.set("n", "<leader>tr", ":set relativenumber!<CR>")
 vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>")
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ls", ":LspStop<CR>")
+vim.keymap.set("n", "<leader>lst", ":LspStart<CR>")
 
 -- Add run permissions on currently open file
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
