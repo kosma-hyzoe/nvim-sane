@@ -22,8 +22,8 @@ vim.opt.conceallevel = 0
 
 -- Spelling
 vim.opt.wildmode = "longest,list,full"
+if vim.g.vscode then vim.opt.spell = false else vim.opt.spell = true end
 vim.opt.spelllang = "en_us,pl"
-vim.opt.spell = true
 vim.opt.spellsuggest = "best,9"
 
 -- Timing
