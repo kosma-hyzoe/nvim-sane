@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-if vim.vscode then
+if vim.g.vscode then
 	require("lazy").setup({
 		"tpope/vim-sleuth",
 
