@@ -11,7 +11,7 @@ mkdir -p ~/.config
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-wget https://www.languagetool.org/download/LanguageTool-5.9.zip
-unzip LanguageTool-5.9.zip
-mv LanguageTool-5.9 -f \
-    ~/.local/share/nvim/site/pack/packer/start/vim-grammarous/misc
+# wget https://www.languagetool.org/download/LanguageTool-5.9.zip
+# unzip LanguageTool-5.9.zip
+# mv LanguageTool-5.9 -f \
+#     ~/.local/share/nvim/site/pack/packer/start/vim-grammarous/misc
