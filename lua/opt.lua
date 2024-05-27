@@ -28,8 +28,8 @@ vim.opt.listchars = { tab = "· ", trail = "·", nbsp = "␣" }
 
 -- Spelling
 vim.opt.wildmode = "longest,list,full"
+if vim.g.vscode then vim.opt.spell = false else vim.opt.spell = true end
 vim.opt.spelllang = "en_us,pl"
-vim.opt.spell = true
 vim.opt.spellsuggest = "best,9"
 
 -- Timing
@@ -42,12 +42,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.bo[args.buf].formatexpr = nil
 	end,
 })
-
--- Highlight bad spell as a grey underline, disable other spell suggestions
-if vim.g.vscode then
-	vim.cmd.hi("Comment gui=none")
-	vim.cmd.hi("clear SpellCap")
-	vim.cmd.hi("clear SpellRare")
-	vim.cmd.hi("clear SpellLocal")
-	vim.cmd.hi("SpellBad gui=underline guisp=grey")
-end
