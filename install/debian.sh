@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install make gcc ripgrep unzip git xclip curl
+sudo apt install make gcc unzip git xclip curl
 
 # Now we install nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
