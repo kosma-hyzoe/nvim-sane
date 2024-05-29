@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-git clone https://github.com/neovim/neovim --depth=1
+git clone https://github.com/neovim/neovim
 cd neovim || exit
 git checkout stable
 make CMAKE_BUILD_TYPE=Release
