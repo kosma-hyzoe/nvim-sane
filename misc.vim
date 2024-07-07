@@ -46,9 +46,3 @@ function! ToggleHideStatus()
     endif
 endfunction
 nnoremap <silent> <leader>hb :call ToggleHideStatus()<CR>
-
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
