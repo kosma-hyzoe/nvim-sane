@@ -7,7 +7,7 @@ autocmd BufReadPost *
 " Deletes all trailing whitespace and EOL newlines on save, resets cursor pos.
 autocmd BufWritePre * let currPos = getpos(".")
 autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
+" autocmd BufWritePre * %s/\n\+\%$//e
 autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " Language-specific settings
@@ -15,6 +15,8 @@ autocmd FileType c call KernelOrSTMStyle()
 function! KernelOrSTMStyle()
     if getline(1) =~ 'USER CODE BEGIN Header'
         setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    elseif getline(1) =~ 'VLX'
+        setlocal tabstop=4 shiftwidth=4 noexpandtab
     else
         setlocal tabstop=8 shiftwidth=8 noexpandtab
     endif

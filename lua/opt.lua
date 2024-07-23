@@ -16,13 +16,17 @@ vim.opt.number = false
 vim.opt.ignorecase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.scrolloff = 5
 vim.opt.conceallevel = 0
 
 -- Spelling
 vim.opt.wildmode = "longest,list,full"
-if vim.g.vscode then vim.opt.spell = false else vim.opt.spell = true end
+if vim.g.vscode then
+	vim.opt.spell = false
+else
+	vim.opt.spell = true
+end
 vim.opt.spelllang = "en_us,pl"
 vim.opt.spellsuggest = "best,9"
 
