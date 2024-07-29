@@ -29,6 +29,9 @@ function! MarkdownStyle()
     setlocal shiftwidth=2
 endfunction
 
+" Disable automatic commenting on
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Hide status on keymap
 let s:hidden_all = 0
 function! ToggleHideStatus()

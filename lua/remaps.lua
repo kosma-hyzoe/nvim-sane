@@ -71,7 +71,7 @@ vim.keymap.set("n", "<leader>t4", ":set tabstop=4 softtabstop=4 shiftwidth=4 exp
 vim.keymap.set("n", "<leader>t8", ":set tabstop=8  shiftwidth=8 noexpandtab<CR>")
 
 -- Disable commenting on new line  TODO: make this a reversible function
-vim.keymap.set("n", "<leader>nc", ":set formatoptions-=c formatoptions-=r formatoptions-=o<CR>")
+vim.keymap.set("n", "<leader>ac", ":set formatoptions+=c formatoptions+=r formatoptions+=o<CR>")
 
 -- Surround word/WORD
 vim.keymap.set("n", "<leader>sw", "ysiw", { remap = true })
