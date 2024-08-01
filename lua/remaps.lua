@@ -1,4 +1,4 @@
--- Quick search
+-- Quick replace
 vim.keymap.set("n", "Q", ":%s//g<Left><Left>", { remap = true })
 
 -- perform dot commands over visual blocks
