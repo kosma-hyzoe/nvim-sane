@@ -42,7 +42,7 @@ vim.opt.inccommand = "split"
 vim.opt.signcolumn = "yes"
 vim.opt.list = true
 vim.opt.listchars = { tab = "· ", trail = "·", nbsp = "␣" }
-vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 
 -- Use internal formatting for bindings like gq
 vim.api.nvim_create_autocmd("LspAttach", {
