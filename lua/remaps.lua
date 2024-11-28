@@ -91,3 +91,9 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- LSP control
 vim.keymap.set("n", "<leader>ls", ":LspStop<CR>")
 vim.keymap.set("n", "<leader>lst", ":LspStart<CR>")
+
+-- Buffers
+vim.api.nvim_set_keymap("n", "<leader>1", ":buffer 1<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>2", ":buffer 2<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>n", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>p", ":bprevious<CR>", { noremap = true, silent = true })
