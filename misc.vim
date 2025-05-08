@@ -7,7 +7,6 @@ autocmd BufReadPost *
 " Deletes all trailing whitespace and EOL newlines on save, resets cursor pos.
 autocmd BufWritePre * let currPos = getpos(".")
 autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
 autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " Language-specific settings
@@ -15,6 +14,8 @@ autocmd FileType c call KernelOrSTMStyle()
 function! KernelOrSTMStyle()
     if getline(1) =~ 'USER CODE BEGIN Header'
         setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    elseif getline(1) =~ 'VLX'
+        setlocal tabstop=4 shiftwidth=4 noexpandtab
     else
         setlocal tabstop=8 shiftwidth=8 noexpandtab
     endif
@@ -28,8 +29,12 @@ function! MarkdownStyle()
     setlocal shiftwidth=2
 endfunction
 
+" Disable automatic commenting on
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Hide status on keymap
 let s:hidden_all = 0
-function! ToggleHiddenAll()
+function! ToggleHideStatus()
     if s:hidden_all  == 0
         let s:hidden_all = 1
         set noshowmode
@@ -44,4 +49,11 @@ function! ToggleHiddenAll()
         set showcmd
     endif
 endfunction
-nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
+nnoremap <silent> <leader>hb :call ToggleHideStatus()<CR>
+
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
