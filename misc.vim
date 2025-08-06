@@ -1,13 +1,13 @@
 " Retain cursor position
-autocmd BufReadPost *
+autocmd BufReadPost * silent!
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
 
 " Deletes all trailing whitespace and EOL newlines on save, resets cursor pos.
-autocmd BufWritePre * let currPos = getpos(".")
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
+autocmd BufWritePre * silent! let currPos = getpos(".")
+autocmd BufWritePre * silent! %s/\s\+$//e
+autocmd BufWritePre * silent! cal cursor(currPos[1], currPos[2])
 
 " Language-specific settings
 autocmd FileType c call KernelOrSTMStyle()
@@ -54,6 +54,6 @@ nnoremap <silent> <leader>hb :call ToggleHideStatus()<CR>
 
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
+  autocmd BufWinLeave * silent! mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
