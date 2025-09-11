@@ -46,12 +46,12 @@ vim.keymap.set("n", "<c-e>", "ge")
 
 -- Leader remaps
 
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>tn", ":set number!<CR>")
 vim.keymap.set("n", "<leader>tr", ":set relativenumber!<CR>")
 vim.keymap.set("n", "<leader>tw", ":set wrap!<CR>")
 vim.keymap.set("n", "<leader>ai", "z=")
-vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>er", vim.cmd.Ex)
 
 -- Add run permissions on currently open file
 vim.keymap.set("n", "<leader>cx", "<cmd>!chmod +x %<CR>", { silent = true })
