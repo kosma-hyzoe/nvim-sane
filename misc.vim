@@ -27,9 +27,10 @@ function! MarkdownStyle()
     setlocal tabstop=2
     setlocal softtabstop=2
     setlocal shiftwidth=2
+    setlocal commentstring=<!--\ %s\ -->
 endfunction
 
-" Disable automatic commenting on
+" Disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Hide status on keymap
@@ -57,3 +58,9 @@ augroup remember_folds
   autocmd BufWinLeave * silent! mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
+
+let g:vimwiki_list = [{
+      \ 'path': '~/notes',
+      \ 'syntax': 'markdown',
+      \ 'ext': '.md'
+      \ }]

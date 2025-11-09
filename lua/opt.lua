@@ -8,7 +8,7 @@ vim.opt.breakindent = true
 vim.opt.textwidth = 80
 
 -- Interface
-vim.opt.colorcolumn = "81"
+vim.opt.colorcolumn = "81,101"
 vim.opt.cursorline = true
 vim.opt.mouse = "a"
 vim.opt.smartcase = true
