@@ -41,7 +41,6 @@ vim.keymap.set("v", "<c-x>", '"+d')
 vim.keymap.set("n", "<c-a>", "<Nop>")
 vim.keymap.set({ "n", "v", "o" }, "<c-a>", "ggVG", { remap = true })
 
-vim.keymap.set("n", "<c-i>", "<c-v>")
 vim.keymap.set("n", "<c-e>", "ge")
 
 -- Leader remaps
@@ -77,11 +76,12 @@ vim.keymap.set("n", "<leader>ac", ":set formatoptions+=c formatoptions+=r format
 -- Surround word/WORD
 vim.keymap.set("n", "<leader>sw", "ysiw", { remap = true })
 vim.keymap.set("n", "<leader>sW", "ysiW", { remap = true })
-
--- Vim diff
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Toggle highlight off
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Vim diff
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
