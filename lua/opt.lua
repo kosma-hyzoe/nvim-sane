@@ -5,7 +5,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true
-vim.opt.textwidth = 80
 
 -- Interface
 vim.opt.colorcolumn = "81,101"
@@ -59,6 +58,15 @@ if vim.g.vscode then
 	vim.cmd.hi("clear SpellLocal")
 	vim.cmd.hi("SpellBad gui=underline guisp=grey")
 end
+
+function ToggleTextWidth()
+  if vim.bo.textwidth == 0 then
+    vim.bo.textwidth = 80
+  else
+    vim.bo.textwidth = 0
+  end
+end
+vim.api.nvim_set_keymap('n', '<leader>tw', ':lua ToggleTextWidth()<CR>', { noremap = true, silent = true })
 
 local notify_original = vim.notify
 vim.notify = function(msg, ...)
