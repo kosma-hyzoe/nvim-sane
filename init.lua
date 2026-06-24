@@ -3,4 +3,4 @@ require("opt")
 require("plugins")
 require("autocmds")
 
-vim.cmd(":source ~/.config/nvim/misc.vim")
+vim.cmd(":source ~/.config/nvim/vim/misc.vim")
