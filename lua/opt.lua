@@ -26,7 +26,7 @@ if vim.g.vscode then
 else
 	vim.opt.spell = true
 end
-vim.opt.spelllang = "en_us,pl"
+vim.opt.spelllang = "en_us,pl,ru"
 vim.opt.spellsuggest = "best,9"
 
 -- Timing
