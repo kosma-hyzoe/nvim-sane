@@ -2,7 +2,7 @@ return {
 	"folke/tokyonight.nvim",
 	priority = 1000,
 	init = function()
-		local scheme = vim.env.LIGHTMODE and "tokyonight-day" or "tokyonight-night"
+		local scheme = vim.env.DARKMODE and "tokyonight-night" or "tokyonight-day"
 		vim.cmd.colorscheme(scheme)
 		vim.cmd.hi("Comment gui=none")
 		vim.cmd.hi("clear SpellCap")
